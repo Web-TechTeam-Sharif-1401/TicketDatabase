@@ -1,12 +1,11 @@
 import csv
-from datetime import tzinfo
 import pytz
 import pandas as pd
 from uuid import uuid4
 import numpy as np
 from faker import Faker
 
-FLIGHT_COUNT = 100000
+FLIGHT_COUNT = 500000
 
 
 def random_generator_f():
@@ -52,6 +51,8 @@ faker = Faker()
 
 
 for flight_serial in range(1, FLIGHT_COUNT + 1):
+    if flight_serial % 10000 == 0:
+        print(flight_serial)
     flight_id = random_generator()
     origin, destination = np.random.choice(iata_codes, 2, replace=False)
     aircraft = np.random.choice(registrations)
