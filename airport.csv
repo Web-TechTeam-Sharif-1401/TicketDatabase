@@ -266,7 +266,6 @@ Canada,Quebec City,Québec City Jean Lesage International Airport,YQB
 Canada,Regina,Regina International Airport,YQR
 Canada,Saskatoon,Saskatoon John G. Diefenbaker International Airport,YXE
 Canada,St. John's,St. John's International Airport,YYT
-Canada,,,
 Canada,Toronto (Mississauga),Toronto Pearson International Airport,YYZ
 Canada,Vancouver (Richmond),Vancouver International Airport,YVR
 Canada,Victoria,Victoria International Airport,YYJ
@@ -560,7 +559,6 @@ Kazakhstan,Shymkent,Shymkent Airport,CIT
 Kazakhstan,Taraz,Taraz Airport,DMB
 Kyrgyzstan,Bishkek,Manas International Airport,FRU
 Kyrgyzstan,Issyk-Kul,Issyk-Kul International Airport,IKU
-Kyrgyzstan,Karakol,Karakol International Airport,
 Kyrgyzstan,Osh,Osh Airport,OSS
 Tajikistan,Bokhtar,Bokhtar International Airport,KQT
 Tajikistan,Dushanbe,Dushanbe Airport,DYU
@@ -1057,7 +1055,6 @@ Slovakia,Piešťany,Piešťany Airport,PZY
 Slovakia,Poprad,Poprad-Tatry Airport,TAT
 Slovakia,Sliač,Sliač Airport,SLD
 Slovakia,Žilina,Žilina Airport,ILZ
-Switzerland,Basel,EuroAirport Basel Mulhouse Freiburg,BSL
 Switzerland,Bern,Bern Airport,BRN
 Switzerland,Geneva,Geneva Airport,GVA
 Switzerland,Lugano,Lugano Airport,LUG
@@ -1205,11 +1202,8 @@ Bulgaria,Burgas,Burgas Airport,BOJ
 Bulgaria,Plovdiv,Plovdiv Airport,PDV
 Bulgaria,Sofia,Sofia Airport,SOF
 Bulgaria,Varna,Varna Airport,VAR
-Georgia,Ambrolauri,Ambrolauri Airport,
 Georgia,Batumi,Batumi International Airport,BUS
 Georgia,Kutaisi,Kutaisi International Airport,KUT
-Georgia,Mestia,Queen Tamar Airport,
-Georgia,Natakhtari,Natakhtari Airfield,
 Georgia,Sokhumi,Sukhumi Babushara Airport,SUI
 Georgia,Tbilisi,Tbilisi International Airport,TBS
 Kosovo,Pristina,Pristina International Airport,PRN
