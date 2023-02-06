@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS purchase
     offer_price           INTEGER,
     offer_class           VARCHAR,
     transaction_result    transaction_result NOT NULL,
-    transaction_id        VARCHAR            NOT NULL PRIMARY KEY
+    transaction_id        INTEGER            NOT NULL PRIMARY KEY
 );
 
 -- OFFERS
