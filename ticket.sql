@@ -103,6 +103,14 @@ CREATE INDEX ON flight (origin, destination, departure_utc);
 -- Transactions
 
 -- Purchases
+CREATE DOMAIN transaction_result AS INTEGER CHECK (VALUE IN (0, 1, 2, 3, 4, 5));
+-- 0: idle
+-- 1: success
+-- 2: input mismatch
+-- 3: expired
+-- 4: no credit
+-- 5: 
+
 
 CREATE TABLE IF NOT EXISTS purchase
 (
@@ -110,10 +118,11 @@ CREATE TABLE IF NOT EXISTS purchase
     title                 VARCHAR,
     first_name            VARCHAR,
     last_name             VARCHAR,
-    flight_serial         INTEGER,
+    flight_serial         INTEGER REFERENCES flight ON DELETE RESTRICT ON UPDATE RESTRICT,
     offer_price           INTEGER,
-    offer_class           VARCHAR
-    -- TODO: transactions
+    offer_class           VARCHAR,
+    transaction_result    transaction_result NOT NULL,
+    transaction_id        INTEGER            NOT NULL PRIMARY KEY
 );
 
 -- OFFERS
@@ -138,18 +147,21 @@ SELECT flight.flight_id                                        AS flight_id,
         (SELECT COUNT(*)
          FROM purchase
          WHERE purchase.flight_serial = flight.flight_serial
-           AND offer_class = 'Y'))                             AS y_class_free_capacity,
+           AND offer_class = 'Y'
+           AND transaction_result = 1))                        AS y_class_free_capacity,
        ((SELECT j_class_capacity FROM aircraft_view WHERE aircraft_view.registration = flight.aircraft) -
         (SELECT COUNT(*)
          FROM purchase
          WHERE purchase.flight_serial = flight.flight_serial
-           AND offer_class = 'J'))
+           AND offer_class = 'J'
+           AND transaction_result = 1))
                                                                AS j_class_free_capacity,
        ((SELECT f_class_capacity FROM aircraft_view WHERE aircraft_view.registration = flight.aircraft) -
         (SELECT COUNT(*)
          FROM purchase
          WHERE purchase.flight_serial = flight.flight_serial
-           AND offer_class = 'F'))                             AS f_class_free_capacity,
+           AND offer_class = 'F'
+           AND transaction_result = 1))                        AS f_class_free_capacity,
        aircraft_view.aircraft_type                             AS equipment
 FROM flight
          JOIN aircraft_view on aircraft_view.registration = flight.aircraft;
